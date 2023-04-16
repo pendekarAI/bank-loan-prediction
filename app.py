@@ -30,9 +30,9 @@ if pilihan == 'Prediksi dari file csv':
         # Keputusan
         for i in range(len(hasil)):
             if hasil[i] == 1:
-                st.write('Data pelanggan',dataku['Loan ID'][i],'= Charge Off')
+                st.write('Data pelanggan',dataku['Loan ID'][i],'= diprediksi akan GAGAL BAYAR')
             else:
-                st.write('Data pelanggan',dataku['Loan ID'][i],'= Fully Paid')
+                st.write('Data pelanggan',dataku['Loan ID'][i],'= diprediksi akan DAPAT MEMBAYAR')
     else:
         st.error('File yang diupload kosong, silakan pilih file yang valid')
         #st.markdown('File yang diupload kosong, silakan pilih file yang valid')
