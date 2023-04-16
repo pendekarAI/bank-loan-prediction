@@ -146,13 +146,13 @@ else:
    
    # Melakukan prediksi
    hasil = my_model.predict(df)
-   keputusan = ''
-   if hasil == 0:
-       keputusan = 'Fully Paid'
-   else:
-       keputusan = 'Charge Off'
+   hasil_proba = my_model.predict_proba(df)
+   keputusan1 = round(float(hasil_proba[:,0])*100,2)
+   keputusan2 = round(float(hasil_proba[:,1])*100,2)
+
 
    # Memunculkan hasil di Web 
-   #st.write(hasil[0])
-   st.write('<center><b><h3>Customer Loan ID', str(loan_id),'</b></h3>', unsafe_allow_html=True)
-   st.write('<center><b><h3>Decision = ', keputusan,'</b></h3>', unsafe_allow_html=True)
+   st.write('***'*10)
+   st.write('<center><b><i><u><h3>Customer Loan ID', str(loan_id),'</b></i></u></h3>', unsafe_allow_html=True)
+   st.write('<center><b><h4>Probabilitas bisa membayar = ', str(keputusan1),'%</b></h4>', unsafe_allow_html=True)
+   st.write('<center><b><h4>Probabilitas gagal bayar = ', str(keputusan2),'%</b></h4>', unsafe_allow_html=True)
